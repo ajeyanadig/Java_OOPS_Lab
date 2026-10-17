@@ -46,7 +46,7 @@ public class Main{
 				break;
 			case 1:
 				System.out.println("The equation has two roots which are");
-				System.out.println("x = "+((-1*b+D)/2*a)+" and x = "+((-1*b-D)/2*a));
+				System.out.println("x = "+((-1*b+D)/2*a)+" and x =  "+((-1*b-D)/2*a));
 				break;
 			case -1:
 				System.out.println("The equation has no real roots");
@@ -55,10 +55,85 @@ public class Main{
 				System.out.println("Something went wrong");
 		}
 	}
+
+	//Q3
+	static void findFactorial(){
+		Scanner sc= new Scanner(System.in);
+		System.out.println("Enter a number: ");
+		int num = sc.nextInt();
+		int fact=1;
+		for(int i=num;i>=1;i--){
+			fact*=i;
+		}
+		System.out.println("Factorial is : "+fact);
+	}
+
+	//Q4
+	static boolean isPrime(int num){
+		for(int i=2;i<=Math.sqrt(num);i++){
+			if(num%i==0)
+				return false;
+		}
+		return true;
+	}
+	static void generatePrimeNumbers(){
+		Scanner sc= new Scanner(System.in);
+		System.out.println("Enter a number: ");
+		int N=sc.nextInt();
+		System.out.println(N+" prime numbers are :  ");
+		
+		for(int i=2;;i++){
+			if(isPrime(i)){
+				System.out.print(i+" ");
+				N--;
+				if(N==0)
+					break;
+			}
+		}
+			
+	}
+
+	//Q5
+	static void checkArmstrong(){
+		Scanner sc= new Scanner(System.in);
+		System.out.println("Enter a number: ");
+		int arm=sc.nextInt();
+		int copy=arm;
+		int sum=0;
+		while(copy>0){
+			int digit = copy%10;
+			sum+=digit*digit*digit;
+			copy/=10;
+		}
+		if(sum==arm){
+			System.out.println(arm+" is an armstrong number.");
+		}else{
+			System.out.println(arm+" is NOT an armstrong number.");
+		}
+	}
+
+	//Q6
+	static void sumOfDigits(){
+		Scanner sc= new Scanner(System.in);
+		System.out.println("Enter a number: ");
+		int num=sc.nextInt();
+		int sum=0;
+		while(num>0){
+			sum+=num%10;
+			num/=10;
+		}	
+		System.out.println("Sum of the digits of that number: "+sum);	
+	}
 	public static void main(String[] args){
+
 		// System.out.println("Hello World");
-		//largestOf3();
-		quadraticRoots();
+		//1.largestOf3();
+		//2.quadraticRoots();
+		//3.findFactorial();
+		//Helper Function Test-> System.out.println(isPrime(100)); isPrime checker
+		//4.generatePrimeNumbers();
+		//5.checkArmstrong();
+		sumOfDigits();
 
 	}
 }
